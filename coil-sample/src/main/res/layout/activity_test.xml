@@ -10,10 +10,48 @@
 		android:id="@+id/button"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:layout_margin="8dp"
 		android:text="PLACEHOLDER TEST"
+		android:textColor="@android:color/black"
+		app:layout_constraintBottom_toTopOf="@id/button2"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_chainStyle="packed" />
+	
+	<Button
+		android:id="@+id/button2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_margin="8dp"
+		android:text="NETWORK CACHE TEST"
+		android:textColor="@android:color/black"
+		app:layout_constraintBottom_toTopOf="@id/button3"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/button" />
+	
+	<Button
+		android:id="@+id/button3"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_margin="8dp"
+		android:text="PALETTE TEST"
+		android:textColor="@android:color/black"
+		app:layout_constraintBottom_toTopOf="@id/button4"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/button2" />
+	
+	<Button
+		android:id="@+id/button4"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_margin="8dp"
+		android:text="CACHE PLACEHOLDER TEST"
 		android:textColor="@android:color/black"
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent" />
+		app:layout_constraintTop_toBottomOf="@id/button3" />
 </androidx.constraintlayout.widget.ConstraintLayout>
