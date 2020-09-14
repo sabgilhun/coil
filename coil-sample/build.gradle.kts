@@ -1,8 +1,5 @@
+import coil.*
 import coil.Library
-import coil.compileSdk
-import coil.targetSdk
-import coil.versionCode
-import coil.versionName
 import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
 plugins {
@@ -50,6 +47,6 @@ dependencies {
     implementation(Library.ANDROIDX_LIFECYCLE_VIEW_MODEL)
     implementation(Library.ANDROIDX_MULTIDEX)
     implementation(Library.ANDROIDX_RECYCLER_VIEW)
-
     implementation(Library.MATERIAL)
+    implementation (Library.PALETTE)
 }

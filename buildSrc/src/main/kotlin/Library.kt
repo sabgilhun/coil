@@ -27,6 +27,7 @@ object Library {
     const val ANDROIDX_LIFECYCLE_VIEW_MODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:$LIFECYCLE_VERSION"
 
     const val MATERIAL = "com.google.android.material:material:1.2.0"
+    const val PALETTE = "androidx.palette:palette-ktx:1.0.0"
 
     const val ANDROID_SVG = "com.caverock:androidsvg-aar:1.4"
 
