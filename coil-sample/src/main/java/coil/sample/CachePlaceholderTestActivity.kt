@@ -17,12 +17,18 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.Coil
 import coil.annotation.ExperimentalCoilApi
 import coil.memory.MemoryCache
-import coil.request.CachePolicy
 import coil.request.ImageRequest
+import coil.request.ImageResult
 import coil.request.SuccessResult
 import coil.sample.databinding.ActivityCachePlaceholderTestBinding
 import coil.sample.databinding.ActivityDetailBinding
 import coil.size.PixelSize
+import coil.transition.CrossfadeTransition
+import coil.transition.Transition
+import coil.transition.TransitionTarget
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import okio.buffer
 import okio.source
@@ -141,14 +147,33 @@ class DetailActivity : AppCompatActivity() {
 
         val request = ImageRequest.Builder(this@DetailActivity)
             .data(url)
+            .allowHardware(false)
+            .transition(DelayedTransition(CrossfadeTransition(500)))
             .placeholderMemoryCacheKey(key)
-            .crossfade(250)
             .target(binding.detail)
             .build()
 
         lifecycle.coroutineScope.launch {
             val result = Coil.execute(request)
             binding.source.text = (result as SuccessResult).metadata.dataSource.toString()
+        }
+    }
+}
+
+@ExperimentalCoilApi
+class DelayedTransition @ExperimentalCoilApi constructor(
+    private val delegate: Transition?
+) : Transition {
+
+    override suspend fun transition(target: TransitionTarget, result: ImageResult) {
+        // Execute the delegate transition.
+        delegate?.let { delegate ->
+            coroutineScope {
+                launch(Dispatchers.Main) {
+                    delay(500)
+                    delegate.transition(target, result)
+                }
+            }
         }
     }
 }

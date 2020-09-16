@@ -169,8 +169,6 @@ internal class RealImageLoader(
                 referenceCounter.decrement(cached)
             }
 
-            delay(3000)
-
             // Resolve the size.
             eventListener.resolveSizeStart(request)
             val size = request.sizeResolver.size()
