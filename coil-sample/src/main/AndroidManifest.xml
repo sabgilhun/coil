@@ -32,5 +32,6 @@
 		<activity android:name=".BitmapPoolTestActivity" />
 		<activity android:name=".CachePlaceholderTestActivity" />
 		<activity android:name=".PaletteTestActivity" />
+		<activity android:name=".DetailActivity" />
 	</application>
 </manifest>

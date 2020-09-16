@@ -55,14 +55,7 @@ import coil.util.log
 import coil.util.metadata
 import coil.util.requestManager
 import coil.util.toDrawable
-import kotlinx.coroutines.CancellationException
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.cancel
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import okhttp3.Call
 import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.coroutines.coroutineContext
@@ -175,6 +168,8 @@ internal class RealImageLoader(
             } finally {
                 referenceCounter.decrement(cached)
             }
+
+            delay(3000)
 
             // Resolve the size.
             eventListener.resolveSizeStart(request)
